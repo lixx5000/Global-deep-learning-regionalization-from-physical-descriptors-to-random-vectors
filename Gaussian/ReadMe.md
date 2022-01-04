@@ -11,10 +11,10 @@ Train and test model. For ease of both training and testing, we put these 2 proc
 python python main.py train --rand_feat_num NUMBER  --cluster NUMBER --camels_root /path/to/camels --cache_data True --num_workers 12--attri_rand_seed NUMBER
 ```
 A single LSTM (EA or CT) will be trained with a specified d Gaussian dimension on a specified set of basins (either subset of 531 basins or the total 531 basins).
-- ```--camels-root```, ```--cache_data True```, ```--num_workers NUMBER```, ```--concat_static True```, ```--use_mse True``` The details documenting those commands can be found in https://github.com/kratzert/ealstm_regional_modeling. For readers' conveneince, we also attached them at the end of this session. 
 - ```--rand_feat_num``` the dimension of d-dimension Gaussian vector. 
-- - ```--attri_rand_seed``` A seed number for generating the Gaussian vector. 
+- ```--attri_rand_seed``` A seed number for generating the Gaussian vector. 
 - ```--cluster file_name``` The cluster number of catchments we'll use to trian the global model. ```file_name``` argument specifies the name of the basin_list. For example, if you want to use 531 basins as stored in 531.txt under data folder. You'll need to type ```--cluster 531```. Otherwise, if you want to train the model on any subset of basins, please save those basin ids as a txt file under ```data``` folder and then specify the txt file name as the argument. 
+- ```--camels-root```, ```--cache_data True```, ```--num_workers NUMBER```, ```--concat_static True```, ```--use_mse True``` The details documenting those commands can be found in https://github.com/kratzert/ealstm_regional_modeling. For readers' conveneince, we also attached them at the end of this session. 
 
 
 
