@@ -8,3 +8,5 @@ This paper highlights the benefit of using random vector as a substitute strateg
 For replicating the LSTM based models using the static features, please run the original script shared by Kratzert in his github repository (https://github.com/kratzert/ealstm_regional_modeling). 
 
 "Gaussian" folder and "one_hot" folders are basically the orginal EA-LSTM model repositories, the revision is committed for workflow and static feature generations.
+
+Each folder in this project represents an experiment section. For replicating the paper's results, please go to the folder and follow the command line instructions. Each experiment will have different input argument options although certain arguments are shared across the experiments. We list and explain those shared arguments below. 
