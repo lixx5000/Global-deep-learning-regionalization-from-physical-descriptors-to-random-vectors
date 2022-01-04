@@ -1,1 +1,4 @@
 Create LSTM family models using Gaussian vectors. 
+
+The Gaussian vectors are random numbers drawn from a normal Gaussian distribution, that is, zero mean and unit variance. For each catchment, it will be assigned a d-dimension vectors. d is detemrined empirically as the one yielding the best performance. 
+For EA-LSTM and FM-LSTM, d is 256 or 512. For CT-LSTM, d is 16 or 32. 
