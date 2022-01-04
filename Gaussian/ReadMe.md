@@ -8,7 +8,7 @@ For EA-LSTM and FM-LSTM, d is 256 or 512. For CT-LSTM, d is 16 or 32.
 #### Run the local Code
 Train and test model. For ease of both training and testing, we put these 2 procedures together in one run. The periods of training and testing are specified in main.py. You'll need to run the following line of code from the terminal. 
 ```
-python python main.py train --rand_feat_num NUMBER  --cluster NUMBER --camels_root /path/to/camels --cache_data True --num_workers 12--attri_rand_seed NUMBER
+python python main.py train --rand_feat_num NUMBER  --cluster NUMBER --attri_rand_seed NUMBER --camels_root /path/to/camels --cache_data True --num_workers 12
 ```
 A single LSTM (EA or CT) will be trained with a specified d Gaussian dimension on a specified set of basins (either subset of 531 basins or the total 531 basins).
 - ```--rand_feat_num``` the dimension of d-dimension Gaussian vector. 
