@@ -13,8 +13,9 @@ About the model environment set-up and data donwloading, please check the https:
 - papercode/
   - consains the entire code what main.py will load from. 
 - main.py
-  - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in both trianing and testing periods) will be in the output. 
+  - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in testing / validation periods) will be in an output pickle file (`output.p`). A loss.txt file records the epoch-wise loss function value.  
 # Run main.py
+### Training
 Running main.py will train a global model on only basins contained in a txt file under `data/`. The loss function is the basin average NSE loss. The results will be stored under `runs/`. To specifiy the model set up (architecture and static vector options) as well as other basic arguments, see below.  
 
 Running the experiments listed below will reproduce the results in the paper (the corresponding experiment and model set up has been mentioned in the bolded font). 
@@ -43,4 +44,16 @@ EA-LSTM are the default model architecture while the 27-d physical descriptors a
  - `--num_workers NUMBER` The number of parallel threads that load and process inputs. By default it is 12. 
  - `--attri_rand_seed NUMBER` The fixed random seed of the Gaussian generated static vectors (only applied when `--rand_feat_num` is provided)
  - `--use_mse True` If passed, the loss function will be the mean squared error, instead of the basin average NSE loss. For the accompanied paper, this argument is never activated. 
+### Evaluation 
+The trained model can also be evaluated to give prediction in testing / validation periods. To evaluate the model, run the command line below: 
+- `python main.py evaluate --camels_root /path/to/camels --run_dir path/to/model/run --cluster STRING`
+
 # Results struture
+Files under the run/ are organized in this following structure: 
+.
+├── ...
+├── test                    # Test files (alternatively `spec` or `tests`)
+│   ├── benchmarks          # Load and stress tests
+│   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
+│   └── unit                # Unit tests
+└── ...
