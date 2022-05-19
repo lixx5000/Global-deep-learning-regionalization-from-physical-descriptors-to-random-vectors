@@ -24,11 +24,10 @@ Running the experiments listed below will reproduce the results in the paper (th
 |    FM-LSTM <br /> `--FM_LSTM True`        |      **FP**        |           **FG-d**               |        **FO**         |                  NA                     |      NA                |
 
 
-EA-LSTM are the default model architecture while the 27-d physical descriptors are default static vector (**x<sup>s</sup>**) options. For any corresponding model architecture and static vector combinations, please combine the arguments in their corresponding row and column headers, for instance: 
+EA-LSTM are the default model architecture while the 27-d physical descriptors are default static vector (**x<sup>s</sup>**) options. The NA only means the corresponding model set up is not included / discussed in the manuscript. For any corresponding model architecture and static vector combinations, their model performance (ensemble version of five different runs) is reported in the paper. To run them in your own, please combine the arguments contained in their corresponding row and column headers, for instance: 
 - to run the **CG-d** (EA-LSTM using d-dimensional Guassian vector), run the following line of code from the terminal 
   - `python main.py train --camels_root /path/to/CAMELS --concat_static_static True --rand_feat_num d`  
-- to run the **REA** (SR-LSTMEA with 27-d Gaussian vectors), run the following line of code from the terminal 
-  - `python main.py train --camels_root /path/to/CAMELS --with_embedding True --rand_feat_num 27` 
-- to run the **EO** (EA-LSTM using one-hot vectors), run the following line of code from the terminal 
-  - `python main.py train --camels_root /path/to/CAMELS --one_hot True` 
+- **REA** (SR-LSTMEA with 27-d Gaussian vectors): `python main.py train --camels_root /path/to/CAMELS --with_embedding True --rand_feat_num 27` 
+- **EO** (EA-LSTM using one-hot vectors): `python main.py train --camels_root /path/to/CAMELS --one_hot True` 
+- **EM** (EA-LSTM using d-dimensional mixed Gaussian vector), `python main.py train --camels_root /path/to/CAMELS --mixed True --rand_feat_num d` 
 # Results struture
