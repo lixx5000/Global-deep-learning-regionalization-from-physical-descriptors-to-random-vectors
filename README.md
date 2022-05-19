@@ -13,8 +13,10 @@ About the model environment set-up and data donwloading, please check the https:
 - papercode/
   - consains the entire code what main.py will load from. 
 - main.py
-  - Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in both trianing and testing periods) will be in the output. 
+  - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in both trianing and testing periods) will be in the output. 
 # Run main.py
+Running main.py will need arguments in addition to the original ones provided by Kratzert et al. 2019. For readers' convenience, we listed all of them together below. 
+
 Running the experiments listed below will reproduce the results in the paper (the corresponding experiment and model set up has been mentioned in the bolded font). 
 |Model architecture       | 27-d Physics descriptors<br />(Default) | Gaussian vectors<br /> (d-dimensional)<br />`--rand_feat_num d` | one hot vector <br /> `--one_hot True`        | mixed Gaussian vectors <br />(d-dimensional)<br />`--mixed True`<br />`--rand_feat_num d`  |no static vector <br /> `--no_static True`  |
 |    :---:                |     :---:   |           :---:                                                 |       :---:                                      |                  :---:                                                                     |       :---:                                |
@@ -33,4 +35,6 @@ EA-LSTM are the default model architecture while the 27-d physical descriptors a
   - `python main.py train --camels_root /path/to/CAMELS --one_hot True` 
 - **EM** (EA-LSTM using d-dimensional mixed Gaussian vector):
   - `python main.py train --camels_root /path/to/CAMELS --mixed True --rand_feat_num d` 
+ In addition, users must provide the two arguments below to train the model. 
+ 
 # Results struture
