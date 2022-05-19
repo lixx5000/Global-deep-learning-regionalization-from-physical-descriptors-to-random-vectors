@@ -28,13 +28,10 @@ Running the experiments listed below will reproduce the results in the paper (th
 
 EA-LSTM are the default model architecture while the 27-d physical descriptors are default static vector (**x<sup>s</sup>**) options. The NA only means the corresponding model set up is not included / discussed in the manuscript. For any corresponding model architecture and static vector combinations, their model performance (ensemble version of five different runs) is reported in the paper. To run them in your own, please combine the arguments contained in their corresponding row and column headers, for instance: 
 - to run the **CG-d** (EA-LSTM using d-dimensional Guassian vector), run the following line of code from the terminal 
-  - `python main.py train --camels_root /path/to/CAMELS --concat_static_static True --rand_feat_num d`  
-- **REA** (SR-LSTMEA with 27-d Gaussian vectors): 
-  - `python main.py train --camels_root /path/to/CAMELS --with_embedding True --rand_feat_num 27` 
-- **EO** (EA-LSTM using one-hot vectors): 
-  - `python main.py train --camels_root /path/to/CAMELS --one_hot True` 
-- **EM-d** (EA-LSTM using d-dimensional mixed Gaussian vector):
-  - `python main.py train --camels_root /path/to/CAMELS --mixed True --rand_feat_num d` 
+  - `python main.py train --concat_static_static True --rand_feat_num d`  
+- **REA** (SR-LSTMEA with 27-d Gaussian vectors) `python main.py train --with_embedding True --rand_feat_num 27` 
+- **EO** (EA-LSTM using one-hot vectors) `python main.py train --one_hot True` 
+- **EM-d** (EA-LSTM using d-dimensional mixed Gaussian vector) `python main.py train --mixed True --rand_feat_num d` 
  
  In addition, users must provide the two arguments below to train the model:
  - `-- cluster STRING` the name of the txt file under data/. For instance, to train a global model using 531 basins, whose ids are listed in 531.txt, we need `--cluster 531`
