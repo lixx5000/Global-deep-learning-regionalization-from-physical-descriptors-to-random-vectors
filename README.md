@@ -18,8 +18,9 @@ About the model environment set-up and data donwloading, please check the https:
 Running the experiments listed below will reproduce the results from the paper. 
 |Model architecture | 27-d Physics descriptors | Gaussian vectors (d-dimensional) | one hot vector | mixed Gaussian (d-dimensional) vectors |
 |-------------------| ------------------------ | -------------------------------- | -------------- | -------------------------------------- |
-|EA||`--rand_feat_num d`|`--one_hot True`|`--mixed True --rand_feat_num d`|
-|CT||`--concat_static True --rand_feat_num d`|`--concat_static True --one_hot True`|`--concat_static True --mixed True --rand_feat_num d`|
-|SR|||||
-|FM|||||
+|Default||`--rand_feat_num d`|`--one_hot True`|`--mixed True --rand_feat_num d`|
+|EA|||||
+|CT|`--concat_static True`|||NA|
+|SR|`--with embedding True`||NA|NA|
+|FM|`--FM_LSTM True`|||NA|
 # Results struture
