@@ -38,7 +38,7 @@ EA-LSTM are the default model architecture while the 27-d physical descriptors a
  - `-- cluster STRING` the name of the txt file under data/. For instance, to train a global model using 531 basins, whose ids are listed in 531.txt, we need `--cluster 531`
  - `--camels_root /path/to/camels` Specify the CAMELS weather data directory. 
  
- To give a complete example on training a global EG-512 (the EA-LSTM using 512-d Gaussian vectors) on 531 basins in CAMELS, run the following line of code: 
+ To give a complete example on training a global **EG-512** (the EA-LSTM using 512-d Gaussian vectors) on 531 basins in CAMELS, run the following line of code: 
  - `python main.py train --rand_feat_num 512 --camels_root /path/to/camels --cluster 531`
  
  Other arguments are optional and include those having been explained by [Kratzert repository]([url](https://github.com/kratzert/ealstm_regional_model)). For readers convenience, we explained all of them below. 
