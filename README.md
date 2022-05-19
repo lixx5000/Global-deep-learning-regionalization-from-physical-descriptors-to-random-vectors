@@ -50,6 +50,7 @@ The trained model can also be evaluated to give prediction in testing / validati
 
 # Results struture
 Files under the run/ are organized in this following structure: 
+```bash
 .
 ├── ...
 ├── test                    # Test files (alternatively `spec` or `tests`)
@@ -57,3 +58,4 @@ Files under the run/ are organized in this following structure:
 │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
 │   └── unit                # Unit tests
 └── ...
+```
