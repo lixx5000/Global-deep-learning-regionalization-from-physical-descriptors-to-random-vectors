@@ -16,7 +16,7 @@ About the model environment set-up and data donwloading, please check the https:
   - Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in both trianing and testing periods) will be in the output. 
 # Run main.py
 Running the experiments listed below will reproduce the results from the paper. 
-|Model architecture | 27-d Physics descriptors (Default) | Gaussian vectors (d-dimensional) | one hot vector        | mixed Gaussian (d-dimensional) vectors  |no static vector  |
+|Model architecture | 27-d Physics descriptors<br />(Default) | Gaussian vectors<br /> (d-dimensional) | one hot vector        | mixed Gaussian vectors <br />(d-dimensional)  |no static vector  |
 |    :---:          |             :---:                  |           :---:                  |       :---:           |                  :---:                  |       :---:    |
 |    EA-LSTM        |             **EP**                 |`--rand_feat_num d`<br /> **EG-d**|`--one_hot True`<br />**EO**|`--mixed True --rand_feat_num d`<br />**EM-d**|`--no_static True`|
 |    CT-LSTM        |    `--concat_static True`<br />**CP**    |            **CG-d**        |       **CO**          |                  NA                     |        NA             |
