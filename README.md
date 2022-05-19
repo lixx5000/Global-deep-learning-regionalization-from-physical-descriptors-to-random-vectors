@@ -17,7 +17,7 @@ About the model environment set-up and data donwloading, please check the https:
 # Run main.py
 Running the experiments listed below will reproduce the results in the paper (the corresponding experiment and model set up has been mentioned in the bolded font). 
 |Model architecture       | 27-d Physics descriptors<br />(Default) | Gaussian vectors<br /> (d-dimensional)<br />`--rand_feat_num d` | one hot vector <br /> `--one_hot True`        | mixed Gaussian vectors <br />(d-dimensional)<br />`--mixed True`<br />`--rand_feat_num d`  |no static vector <br /> `--no_static True`  |
-|    :---:                |             :---:                       |           :---:                                                 |       :---:                                      |                  :---:                                                                     |       :---:                                |
+|    :---:                |     :---:   |           :---:                                                 |       :---:                                      |                  :---:                                                                     |       :---:                                |
 |    EA-LSTM              |             **EP**                 | **EG-d**|**EO**|**EM-d**||
 |    CT-LSTM <br />`--concat_static True`     |    **CP**    |            **CG-d**        |       **CO**          |                  NA                     |        NA             |
 |    SR-LSTMEA <br /> `--with_embedding True` |   **PEA**  |             **REA** (d=27) |          NA           |                  NA                     |     NA                |
