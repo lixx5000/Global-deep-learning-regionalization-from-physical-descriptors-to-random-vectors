@@ -16,11 +16,11 @@ About the model environment set-up and data donwloading, please check the https:
   - Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in both trianing and testing periods) will be in the output. 
 # Run main.py
 Running the experiments listed below will reproduce the results in the paper (the corresponding experiment and model set up has been mentioned in the bolded font). 
-|Model architecture | 27-d Physics descriptors<br />(Default) | Gaussian vectors<br /> (d-dimensional)<br />`--rand_feat_num d` | one hot vector <br /> `--one_hot True`        | mixed Gaussian vectors <br />(d-dimensional)<br />`--mixed True`<br />`--rand_feat_num d`  |no static vector <br /> `--no_static True`  |
-|    :---:          |             :---:                  |           :---:                  |       :---:           |                  :---:                  |       :---:    |
-|    EA-LSTM        |             **EP**                 | **EG-d**|**EO**|**EM-d**||
-|    CT-LSTM <br />`--concat_static True`        |    **CP**    |            **CG-d**        |       **CO**          |                  NA                     |        NA             |
-|    SR-LSTMEA <br /> `--with_embedding True`      |   **PEA**  |             **REA** (d=27) |          NA           |                  NA                     |     NA                |
+|Model architecture       | 27-d Physics descriptors<br />(Default) | Gaussian vectors<br /> (d-dimensional)<br />`--rand_feat_num d` | one hot vector <br /> `--one_hot True`        | mixed Gaussian vectors <br />(d-dimensional)<br />`--mixed True`<br />`--rand_feat_num d`  |no static vector <br /> `--no_static True`  |
+|    :---:                |             :---:                       |           :---:                                                 |       :---:                                      |                  :---:                                                                     |       :---:                                |
+|    EA-LSTM              |             **EP**                 | **EG-d**|**EO**|**EM-d**||
+|    CT-LSTM <br />`--concat_static True`     |    **CP**    |            **CG-d**        |       **CO**          |                  NA                     |        NA             |
+|    SR-LSTMEA <br /> `--with_embedding True` |   **PEA**  |             **REA** (d=27) |          NA           |                  NA                     |     NA                |
 |    FM-LSTM <br /> `--FM_LSTM True`        |      **FP**        |           **FG-d**               |        **FO**         |                  NA                     |      NA                |
 
 
