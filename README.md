@@ -15,7 +15,7 @@ About the model environment set-up and data donwloading, please check the https:
 - main.py
   - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in both trianing and testing periods) will be in the output. 
 # Run main.py
-Running main.py will need arguments in addition to the original ones provided by Kratzert et al. 2019. For readers' convenience, we listed all of them together below. 
+Running main.py will train a global model on only basins contained in a txt file under `data/`. The loss function is the basin average NSE loss. The results will be stored under `runs/`. To specifiy the model set up (architecture and static vector options) as well as other basic arguments, see below.  
 
 Running the experiments listed below will reproduce the results in the paper (the corresponding experiment and model set up has been mentioned in the bolded font). 
 |Model architecture       | 27-d Physics descriptors<br />(Default) | Gaussian vectors<br /> (d-dimensional)<br />`--rand_feat_num d` | one hot vector <br /> `--one_hot True`        | mixed Gaussian vectors <br />(d-dimensional)<br />`--mixed True`<br />`--rand_feat_num d`  |no static vector <br /> `--no_static True`  |
@@ -33,8 +33,17 @@ EA-LSTM are the default model architecture while the 27-d physical descriptors a
   - `python main.py train --camels_root /path/to/CAMELS --with_embedding True --rand_feat_num 27` 
 - **EO** (EA-LSTM using one-hot vectors): 
   - `python main.py train --camels_root /path/to/CAMELS --one_hot True` 
-- **EM** (EA-LSTM using d-dimensional mixed Gaussian vector):
+- **EM-d** (EA-LSTM using d-dimensional mixed Gaussian vector):
   - `python main.py train --camels_root /path/to/CAMELS --mixed True --rand_feat_num d` 
- In addition, users must provide the two arguments below to train the model. 
  
+ In addition, users must provide the two arguments below to train the model:
+ - `-- cluster STRING` the name of the txt file under data/. For instance, to train a global model using 531 basins, whose ids are listed in 531.txt, we need `--cluster 531`
+ - `--camels_root /path/to/camels` Specify the CAMELS weather data directory. 
+ 
+ Other arguments are optional and include those having been explained by [Kratzert repository]([url](https://github.com/kratzert/ealstm_regional_model)). For readers convenience, we explained all of them below. 
+ - `--seed NUMBER` Train a model using a fixed random seed. 
+ - `--cache_data True` Load the entire training data into memory. It needs approximately 50GB of RAM. 
+ - `--num_workers NUMBER` The number of parallel threads that load and process inputs. By default it is 12. 
+ - `--attri_rand_seed NUMBER` The fixed random seed of the Gaussian generated static vectors (only applied when `--rand_feat_num` is provided)
+ - `--use_mse True` If passed, the loss function will be the mean squared error, instead of the basin average NSE loss. For the accompany paper, this argument is never activated. 
 # Results struture
