@@ -55,7 +55,7 @@ Files under the run/ are organized in this following structure:
 ├── runs
 └── cluster_STRING      # the argument for `--cluster`, which is the basin list txt file name in the data/ folder
     └── model_structure  # options in the 'Model architecture' column of the above table, can only be 'ea' (EA-LSTM), 'ct' (CT-LSTM), 'sr' (SR-LSTMEA), 'fm' (FM-LSTM)  
-        └── static vector # options in the static vectors (the column header in the above table), can only be 'physics', 'one_hot', 'no_static', 'num_of_sf', 'mixed'. 
+        └── static vector # options in the static vectors (the column header in the above table), can only be 'physics' (physical descriptors), 'one_hot', 'no_static', 'num_of_sf' (Gaussian vector), 'mixed' (mixed Gaussian vector). 
             └── rand_feat_num               # (deprecated unless `--rand_feat_num` is specified) the dimension of random vectors (i.e., the number specified in the `--rand_feat_num` argument)
                 └── attri_rand_seed         # (deprecated unless `--rand_feat_num` is specified) the seed number for the Gaussian vector generation. 
                     └── seed_NUMBER         # model initialization seed number. 
