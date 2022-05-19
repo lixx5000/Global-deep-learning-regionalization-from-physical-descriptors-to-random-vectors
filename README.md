@@ -62,7 +62,7 @@ Files under the run/ are organized in this following structure:
                           ├── output.p        # model prediction pickle file
                           ├── attributes.db   # static vector 
                           ├── cfg.json        # the configuration file for the model training
-                          ├── model_epochx.pt # model paramter files saved after each epoch
+                          ├── model_epochx.pt # model paramter files saved after each epoch (x denotes the epoch number)
                           └──  loss.csv       # epoch-wise loss values 
 
 
