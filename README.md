@@ -13,7 +13,7 @@ About the model environment set-up and data donwloading, please check the https:
 - papercode/
   - consains the entire code what main.py will load from. 
 - main.py
-  - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in testing / validation periods) will be in an output pickle file (`output.p`). A loss.txt file records the epoch-wise loss function value.  
+  - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in testing / validation periods) will be in an output pickle file (`output.p`). A loss.csv file records the epoch-wise loss function value.  
 # Run main.py
 ### Training
 Running main.py will train a global model on only basins contained in a txt file under `data/`. The loss function is the basin average NSE loss. The results will be stored under `runs/`. To specifiy the model set up (architecture and static vector options) as well as other basic arguments, see below.  
@@ -51,11 +51,16 @@ The trained model can also be evaluated to give prediction in testing / validati
 # Results struture
 Files under the run/ are organized in this following structure: 
 ```bash
-.
-├── ...
-├── test                    # Test files (alternatively `spec` or `tests`)
-│   ├── benchmarks          # Load and stress tests
-│   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-│   └── unit                # Unit tests
-└── ...
-```
+
+├── runs
+├── cluster_STRING      # the argument for `--cluster`, which is the basin list txt file name in the `data/` folder
+    └── model_structure  # options in the 'Model architecture' column of the above table, can only be 
+        └── static vector
+            └── seed_NUMBER
+                ├── output.p
+                ├── attributes.db
+                ├── cfg.json
+                ├── model_epochx.pt
+                └──  loss.csv
+
+
