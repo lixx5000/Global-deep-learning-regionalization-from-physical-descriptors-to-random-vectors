@@ -307,7 +307,7 @@ class FMLSTM(nn.Module):
                  hidden_size: int,
                  batch_first: bool = True,
                  initial_forget_bias: int = 0):
-        super(EALSTM, self).__init__()
+        super(FMLSTM, self).__init__()
 
         self.input_size_dyn = input_size_dyn
         self.input_size_stat = input_size_stat

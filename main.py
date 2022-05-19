@@ -306,7 +306,8 @@ class Model(nn.Module):
                              hidden_size=hidden_size,
                              initial_forget_bias=initial_forget_bias)
         elif self.add_embedding:
-            self.lstm = SRLSTM_EA(input_size=input_size_dyn,
+            self.lstm = SRLSTM_EA(input_size_dyn=input_size_dyn,
+                                  input_size_stat=input_size_stat,
                                   hidden_size=hidden_size,
                                   initial_forget_bias=initial_forget_bias, 
                                   ann_1=512)  # we mannually put the dim of the inserted embedding layer to be 512 becuase of the EG-512. See manuscript. 
@@ -406,7 +407,10 @@ def train(cfg):
                   initial_forget_bias=cfg["initial_forget_gate_bias"],
                   dropout=cfg["dropout"],
                   concat_static=cfg["concat_static"],
-                  no_static=cfg["no_static"]) 
+                  no_static=cfg["no_static"], 
+                  add_embedding=cfg['with_embeddings'], 
+                  fm=cfg['FM_LSTM']
+                 ) 
     model = nn.DataParallel(model, device_ids=list(range(torch.cuda.device_count())))     # multiple GPU to speed up if accessible. 
     model = model.to(DEVICE)   # multiple GPU
     
@@ -478,7 +482,7 @@ def train(cfg):
 
 # store these results per basin.
 #     print (user_cfg['run_dir'])
-    file_name = cfg["run_dir"] / ("531.p")
+    file_name = cfg["run_dir"] / ("output.p")
     with (file_name).open('wb') as fp:
         pickle.dump(results, fp)
 
@@ -580,6 +584,8 @@ def evaluate(user_cfg: Dict):
     means = attributes.mean()
     stds = attributes.std()
     
+    
+    # create model and optimizer
     if np.sum(attributes.sum(axis = 1) == 1) == len(basins):
         print ('it is one-hot, no need to normalize static features')
         self.df = df
@@ -591,15 +597,19 @@ def evaluate(user_cfg: Dict):
     
     
     # create model and optimizer
-    input_size_stat = 0 if cfg['no_static'] else attributes.shape[1]  # the number of columns in the df is the number of static features. 
+    input_size_stat = 0 if run_cfg['no_static'] else attributes.shape[1]  # the number of columns in the df is the number of static features. 
     
-    input_size_dyn = 5 if (cfg["no_static"] or not cfg["concat_static"]) else (input_size_stat + 5)  
+    input_size_dyn = 5 if (run_cfg["no_static"] or not run_cfg["concat_static"]) else (input_size_stat + 5)  
     model = Model(input_size_dyn=input_size_dyn,
                   input_size_stat=input_size_stat,
                   hidden_size=run_cfg["hidden_size"],
+                  initial_forget_bias=run_cfg["initial_forget_gate_bias"],
                   dropout=run_cfg["dropout"],
                   concat_static=run_cfg["concat_static"],
-                  no_static=run_cfg["no_static"])
+                  no_static=run_cfg["no_static"], 
+                  add_embedding=run_cfg['with_embeddings'], 
+                  fm=run_cfg['FM_LSTM'])
+    
     model = nn.DataParallel(model, device_ids=list(range(torch.cuda.device_count())))     # multiple GPU if accessoble
     model = model.to(DEVICE)   
                                                                
@@ -631,7 +641,7 @@ def evaluate(user_cfg: Dict):
 
 # store these results per basin.
     print (user_cfg['run_dir'])
-    file_name = user_cfg["run_dir"] / ("531.p")
+    file_name = user_cfg["run_dir"] / ("output.p")
     with (file_name).open('wb') as fp:
         pickle.dump(results, fp)
 
