@@ -45,5 +45,5 @@ EA-LSTM are the default model architecture while the 27-d physical descriptors a
  - `--cache_data True` Load the entire training data into memory. It needs approximately 50GB of RAM. 
  - `--num_workers NUMBER` The number of parallel threads that load and process inputs. By default it is 12. 
  - `--attri_rand_seed NUMBER` The fixed random seed of the Gaussian generated static vectors (only applied when `--rand_feat_num` is provided)
- - `--use_mse True` If passed, the loss function will be the mean squared error, instead of the basin average NSE loss. For the accompany paper, this argument is never activated. 
+ - `--use_mse True` If passed, the loss function will be the mean squared error, instead of the basin average NSE loss. For the accompanied paper, this argument is never activated. 
 # Results struture
