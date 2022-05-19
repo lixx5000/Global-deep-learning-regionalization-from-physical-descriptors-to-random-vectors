@@ -18,19 +18,17 @@ About the model environment set-up and data donwloading, please check the https:
 Running the experiments listed below will reproduce the results in the paper (the corresponding experiment and model set up has been mentioned in the bolded font). 
 |Model architecture       | 27-d Physics descriptors<br />(Default) | Gaussian vectors<br /> (d-dimensional)<br />`--rand_feat_num d` | one hot vector <br /> `--one_hot True`        | mixed Gaussian vectors <br />(d-dimensional)<br />`--mixed True`<br />`--rand_feat_num d`  |no static vector <br /> `--no_static True`  |
 |    :---:                |     :---:   |           :---:                                                 |       :---:                                      |                  :---:                                                                     |       :---:                                |
-|    EA-LSTM              |             **EP**                 | **EG-d**|**EO**|**EM-d**||
+|    EA-LSTM (Default)              |             **EP**                 | **EG-d**|**EO**|**EM-d**||
 |    CT-LSTM <br />`--concat_static True`     |    **CP**    |            **CG-d**        |       **CO**          |                  NA                     |        NA             |
 |    SR-LSTMEA <br /> `--with_embedding True` |   **PEA**  |             **REA** (d=27) |          NA           |                  NA                     |     NA                |
 |    FM-LSTM <br /> `--FM_LSTM True`        |      **FP**        |           **FG-d**               |        **FO**         |                  NA                     |      NA                |
 
 
-
-
-EA-LSTM and the 27-d physical descriptors option are default set ups. For other options, please overlay the corresponding arguments with the default ones. For instance: 
+EA-LSTM are the default model architecture while the 27-d physical descriptors are default static vector (**x<sup>s</sup>**) options. For any corresponding model architecture and static vector combinations, please combine the arguments in their corresponding row and column headers, for instance: 
 - to run the **CG-d** (EA-LSTM using d-dimensional Guassian vector), run the following line of code from the terminal 
   - `python main.py train --camels_root /path/to/CAMELS --concat_static_static True --rand_feat_num d`  
-    - (overlay `--rand_feat_num d` to the CT-LSTM default option `--concat_static True`)
 - to run the **REA** (SR-LSTMEA with 27-d Gaussian vectors), run the following line of code from the terminal 
   - `python main.py train --camels_root /path/to/CAMELS --with_embedding True --rand_feat_num 27` 
-    - (overlay `--rand_feat_num 27` to the SR-LSTMEA default option `--with_embedding True`)
+- to run the **EO** (EA-LSTM using one-hot vectors), run the following line of code from the terminal 
+  - `python main.py train --camels_root /path/to/CAMELS --one_hot True` 
 # Results struture
