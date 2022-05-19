@@ -18,8 +18,8 @@ About the model environment set-up and data donwloading, please check the https:
 Running the experiments listed below will reproduce the results from the paper. 
 |Model architecture | 27-d Physics descriptors (Default) | Gaussian vectors (d-dimensional) | one hot vector        | mixed Gaussian (d-dimensional) vectors  |no static vector  |
 |    :---:          |             :---:                  |           :---:                  |       :---:           |                  :---:                  |       :---:    |
-|    EA-LSTM        |             **EP**                 |`--rand_feat_num d` **EG-d**      |`--one_hot True` **EO**|`--mixed True --rand_feat_num d` **EM-d**|`--no_static True`|
-|    CT-LSTM        |    `--concat_static True`**CP**    |            **CG-d**              |       **CO**          |                  NA                     |        NA             |
-|    SR-LSTMEA      |   `--with_embedding True` **PEA**  |             **REA**              |          NA           |                  NA                     |     NA                |
-|    FM-LSTM        |      `--FM_LSTM True`**FP**        |           **FG-d**               |        **FO**         |                  NA                     |      NA                |
+|    EA-LSTM        |             **EP**                 |`--rand_feat_num d`<br /> **EG-d**|`--one_hot True`<br />**EO**|`--mixed True --rand_feat_num d`<br />**EM-d**|`--no_static True`|
+|    CT-LSTM        |    `--concat_static True`<br />**CP**    |            **CG-d**        |       **CO**          |                  NA                     |        NA             |
+|    SR-LSTMEA      |   `--with_embedding True`<br /> **PEA**  |             **REA** (d=27) |          NA           |                  NA                     |     NA                |
+|    FM-LSTM        |      `--FM_LSTM True`<br />**FP**        |           **FG-d**               |        **FO**         |                  NA                     |      NA                |
 # Results struture
