@@ -53,14 +53,14 @@ Files under the run/ are organized in this following structure:
 ```bash
 
 ├── runs
-├── cluster_STRING      # the argument for `--cluster`, which is the basin list txt file name in the `data/` folder
-    └── model_structure  # options in the 'Model architecture' column of the above table, can only be 
-        └── static vector
-            └── seed_NUMBER
-                ├── output.p
-                ├── attributes.db
-                ├── cfg.json
-                ├── model_epochx.pt
-                └──  loss.csv
+├── cluster_STRING      # the argument for `--cluster`, which is the basin list txt file name in the data/ folder
+    └── model_structure  # options in the 'Model architecture' column of the above table, can only be 'ea' (EA-LSTM), 'ct' (CT-LSTM), 'sr' (SR-LSTMEA), 'fm' (FM-LSTM)  
+        └── static vector # options in the static vectors (the column header in the above table), can only be 'physics', 'one_hot', 'no_static', 'num_of_sf', 'mixed'. 
+            └── seed_NUMBER         # model initialization seed number. 
+                ├── output.p        # model prediction pickle file
+                ├── attributes.db   # static vector 
+                ├── cfg.json        # the configuration file for the model training
+                ├── model_epochx.pt # model paramter files saved after each epoch
+                └──  loss.csv       # epoch-wise loss values 
 
 
