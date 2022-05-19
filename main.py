@@ -1,12 +1,12 @@
 """
-This file is part of the accompanying code to our manuscript:
+This file is part of the accompanying code to our manuscript (currently under review):
 
-Kratzert, F., Klotz, D., Shalev, G., Klambauer, G., Hochreiter, S., Nearing, G., "Benchmarking
-a Catchment-Aware Long Short-Term Memory Network (LSTM) for Large-Scale Hydrological Modeling".
-submitted to Hydrol. Earth Syst. Sci. Discussions (2019)
+Xiang Li, Ankush Khandelwal, Xiaowei Jia, Kelly Cutler, Rahul Ghosh, Arvind Renganathan, Kshitij Tayal, Shaoming Xu, 
+John Nieber, Christopher Duffy, Michael Steinbach, Vipin Kumar. 2022. 
+“Regionalization in a global hydrologic deep learning model: from physical descriptors to random vectors” 
+Water Resources Research (Under review). Preprint is available: https://www.essoar.org/doi/10.1002/essoar.10510083.1
 
-You should have received a copy of the Apache-2.0 license along with the code. If not,
-see <https://opensource.org/licenses/Apache-2.0>
+A majority of this code is built on the Kratzert. et al (2019), see their github repo: https://github.com/kratzert/ealstm_regional_modeling
 """
 
 import argparse
