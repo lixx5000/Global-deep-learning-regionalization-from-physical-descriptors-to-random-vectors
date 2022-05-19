@@ -17,7 +17,7 @@ About the model environment set-up and data donwloading, please check the https:
 # Run main.py
 Running the experiments listed below will reproduce the results from the paper. 
 |Model architecture | 27-d Physics descriptors | Gaussian vectors (d-dimensional) | one hot vector | mixed Gaussian (d-dimensional) vectors |no static vector|
-|-------------------| ------------------------ | -------------------------------- | -------------- | -------------------------------------- ||
+|-------------------| ------------------------ | -------------------------------- | -------------- | -------------------------------------- |----------------|
 |Default||`--rand_feat_num d`|`--one_hot True`|`--mixed True --rand_feat_num d`||
 |EA||||||
 |CT|`--concat_static True`|||NA|NA|
