@@ -58,7 +58,7 @@ Note that this procedure has also been included in the training procedure. In ca
 ### Ensemble the prediction
 The results from multiple-runs need to be ensembled (i.e., the average prediction for the same basin has to be given as averages from different runs). To do this, please run the command line below: 
 - `python ensemble_5_runs.py --output_p_direc /path/to/the/model/runs/specified/by/model/set/up/ --ensemble_file_name ensembled_file_name`
-  - `--output_p_direc` shall not be the final level where the 'output.p' is located, intead, it has to be specifeid only to either the 'static_vector' level or the 'rand_feat_num' level (if this level has been created). 
+  - `--output_p_direc` shall not be the final level where the 'output.p' is located, intead, it has to be specifeid only to either the 'static_vector' level or the 'rand_feat_num' level (if this level has been created, see the Results structure section below). 
   - `--ensemble_file_name` is a user-provided string of the final ensembled modle output file name. 
 
 # Results struture
