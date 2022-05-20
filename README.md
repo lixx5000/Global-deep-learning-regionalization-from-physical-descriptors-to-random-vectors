@@ -47,9 +47,17 @@ EA-LSTM are the default model architecture while the 27-d physical descriptors a
  - `--num_workers NUMBER` The number of parallel threads that load and process inputs. By default it is 12. 
  - `--attri_rand_seed NUMBER` The fixed random seed of the Gaussian generated static vectors (only applied when `--rand_feat_num` is provided)
  - `--use_mse True` If passed, the loss function will be the mean squared error, instead of the basin average NSE loss. For the accompanied paper, this argument is never activated. 
+
 ### Evaluation 
 The trained model can also be evaluated to give prediction in testing / validation periods. To evaluate the model, run the command line below: 
 - `python main.py evaluate --camels_root /path/to/camels --run_dir path/to/model/run --cluster STRING`
+Note that this procedure has also been included in the training procedure. In case users might want to do it separately, its illustration is provided. 
+
+### Ensemble the prediction
+The results from multiple-runs need to be ensembled (i.e., the average prediction for the same basin has to be given as averages from different runs). To do this, please run the command line below: 
+- `python ensemble_5_runs.py --output_p_direc /path/to/the/model/runs/specified/by/model/set/up/ --ensemble_file_name ensembled_file_name`
+  -`--output_p_direc` shall not be the final level where the 'output.p' is located, intead, it has to be specifeid only to either the 'static_vector' level or the 'rand_feat_num' level (if this level has been created). 
+  -`--ensemble_file_name` is a user-provided string of the final ensembled modle output file name. 
 
 # Results struture
 Files under the run/ are organized in this following structure: 
