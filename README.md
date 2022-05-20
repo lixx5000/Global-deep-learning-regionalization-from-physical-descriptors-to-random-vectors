@@ -14,6 +14,8 @@ About the model environment set-up and data donwloading, please check the https:
   - consains the entire code what main.py will load from. 
 - main.py
   - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in testing / validation periods) will be in an output pickle file (`output.p`). A loss.csv file records the epoch-wise loss function value.  
+- ensemble_5_runs.py
+  - Ensemble the model prediction results from multiple runs (averaging them) to yield final model predictions. We ensembled five different runs in this paper. 
 # Run main.py
 ### Training
 Running main.py will train a global model on only basins contained in a txt file under `data/`. The loss function is the basin average NSE loss. The results will be stored under `runs/`. To specifiy the model set up (architecture and static vector options) as well as other basic arguments, see below.  
@@ -56,8 +58,8 @@ Note that this procedure has also been included in the training procedure. In ca
 ### Ensemble the prediction
 The results from multiple-runs need to be ensembled (i.e., the average prediction for the same basin has to be given as averages from different runs). To do this, please run the command line below: 
 - `python ensemble_5_runs.py --output_p_direc /path/to/the/model/runs/specified/by/model/set/up/ --ensemble_file_name ensembled_file_name`
-  -`--output_p_direc` shall not be the final level where the 'output.p' is located, intead, it has to be specifeid only to either the 'static_vector' level or the 'rand_feat_num' level (if this level has been created). 
-  -`--ensemble_file_name` is a user-provided string of the final ensembled modle output file name. 
+  - `--output_p_direc` shall not be the final level where the 'output.p' is located, intead, it has to be specifeid only to either the 'static_vector' level or the 'rand_feat_num' level (if this level has been created). 
+  - `--ensemble_file_name` is a user-provided string of the final ensembled modle output file name. 
 
 # Results struture
 Files under the run/ are organized in this following structure: 
