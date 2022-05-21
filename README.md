@@ -17,7 +17,7 @@ About the model environment set-up and data donwloading, please check the https:
 - ensemble_5_runs.py
   - Ensemble the model prediction results from multiple runs (averaging them) to yield final model predictions. We ensembled five different runs in this paper. 
 - notebook
-  - the jupyter notebook that creates the figures in the manuscript and their corresponding data files. (coming shortly)
+  - the jupyter notebook that creates the figures in the manuscript and their corresponding data files. (Updated in progress)
 # Run main.py
 ### Training
 Running main.py will train a global model on only basins contained in a txt file under `data/`. The loss function is the basin average NSE loss. The results will be stored under `runs/`. To specifiy the model set up (architecture and static vector options) as well as other basic arguments, see below.  
