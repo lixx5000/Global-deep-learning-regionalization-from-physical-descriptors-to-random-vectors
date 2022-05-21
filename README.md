@@ -16,6 +16,8 @@ About the model environment set-up and data donwloading, please check the https:
   - The Main python file used for training, testing the global deep learning models. To run it, you'll need to type a line of commands on the terminal to start training. Note for running convenience, we merged model evaluation within model training, that is, after taining the model, the model prediction (in testing / validation periods) will be in an output pickle file (`output.p`). A loss.csv file records the epoch-wise loss function value.  
 - ensemble_5_runs.py
   - Ensemble the model prediction results from multiple runs (averaging them) to yield final model predictions. We ensembled five different runs in this paper. 
+- notebook
+  - the jupyter notebook that creates the figures in the manuscript and their corresponding data files. (coming shortly)
 # Run main.py
 ### Training
 Running main.py will train a global model on only basins contained in a txt file under `data/`. The loss function is the basin average NSE loss. The results will be stored under `runs/`. To specifiy the model set up (architecture and static vector options) as well as other basic arguments, see below.  
